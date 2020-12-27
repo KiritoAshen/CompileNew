@@ -65,6 +65,7 @@ public class App {
         scanner = new Scanner(input);
         var iter = new StringIter(scanner);
         var tokenizer = tokenize(iter);
+        System.exit(0);
         var analyzer = new Analyser(tokenizer);
         List<Instruction> instructions;
         ArrayList<Byte> Binary = new ArrayList<>();
