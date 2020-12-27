@@ -111,37 +111,7 @@ public class Tokenizer {
     }
 
     private Token StringOrChar() throws TokenizeError{
-        String token = "";
-        Pos startpos1 =it.currentPos();
-        //字符串String
-        if (it.peekChar() == '\"'){
-            it.nextChar();
-            while(it.peekChar()!='\"'){
-                token = getEscapeSequence(token);
-            }
-            if (it.peekChar()=='\"'){
-                it.nextChar();
-                Pos endpos1 = it.currentPos();
-                return new Token(TokenType.STRING_LITERAL,token,startpos1,endpos1);
-            }else{
-                throw new TokenizeError(ErrorCode.InvalidInput,it.previousPos());
-            }
-        }else if(it.peekChar() == '\''){
-            //char字符串
-            it.nextChar();
-            while(it.peekChar()!='\''){
-                token = getEscapeSequence(token);
-            }
-            if (it.peekChar()=='\''){
-                it.nextChar();
-                Pos endpos1 = it.currentPos();
-                return new Token(TokenType.CHAR_LITERAL,token,startpos1,endpos1);
-            }else{
-                throw new TokenizeError(ErrorCode.InvalidInput,it.previousPos());
-            }
-        }else{
-            throw new TokenizeError(ErrorCode.InvalidInput,it.previousPos());
-        }
+        throw new TokenizeError(ErrorCode.InvalidInput,it.previousPos());
     }
     //识别转义字符
     private String getEscapeSequence(String token) throws TokenizeError {
