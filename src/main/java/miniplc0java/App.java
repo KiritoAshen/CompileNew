@@ -65,7 +65,7 @@ public class App {
         scanner = new Scanner(input);
         var iter = new StringIter(scanner);
         var tokenizer = tokenize(iter);
-        System.exit(0);
+        
         var analyzer = new Analyser(tokenizer);
         List<Instruction> instructions;
         ArrayList<Byte> Binary = new ArrayList<>();
@@ -114,6 +114,7 @@ public class App {
             ArrayList<String> funcName = analyzer.getFuncName();
             ArrayList<String> globalName = analyzer.getGlobalName();
             //转换成二进制！
+            System.exit(0);
             int [] maigicVersion ={0x72,0x30,0x3b,0x3e,0x0,0x0,0x0,0x01};
             for (int num:maigicVersion){
                 toBinary_8(Binary,num);
