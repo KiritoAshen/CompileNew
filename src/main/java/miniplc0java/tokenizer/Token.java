@@ -1,4 +1,6 @@
 package miniplc0java.tokenizer;
+
+import miniplc0java.error.TokenizeError;
 import miniplc0java.util.Pos;
 
 import java.util.Objects;
@@ -80,7 +82,7 @@ public class Token {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         sb.append("Line: ").append(this.startPos.row).append(' ');
         sb.append("Column: ").append(this.startPos.col).append(' ');
         sb.append("Type: ").append(this.tokenType).append(' ');
